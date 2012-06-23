@@ -1,0 +1,3 @@
+#!/bin/bash
+mkdir -p /tmp/laser_stats
+top -b -n 1 | grep 'Cpu(s):' > /tmp/laser_stats/cpu
