@@ -15,11 +15,11 @@ config = {
     "buffer_size": 25,
     "hosts":hosts,
     "user":"ubuntu",
-    "keyfile":"/home/thomas/Dropbox/ec2_key"
+    "keyfile":""
 }
 
 ringbuffer = RingBuffer(config["buffer_size"])
-fileWriter = CPUDataFileWriter("/home/thomas/current/cpuusage")
+fileWriter = CPUDataFileWriter("/var/laserstats/cpuusage")
 
 j = 0
 while True:

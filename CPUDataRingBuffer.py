@@ -7,7 +7,7 @@ class RingBuffer:
     def append(self,x):
         self.data.append(x)
         if len(self.data) == self.max:
-            self.cu = 0
+            self.cur = 0
             self.__class__ = RingBufferFull
     def get(self):
         return self.data
