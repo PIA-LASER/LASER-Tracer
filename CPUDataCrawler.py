@@ -12,7 +12,7 @@ class CPUDataCrawler():
     def collectData(self):
         hostdata = []
         for host in self.hosts:
-            command = "ssh %s@%s -i %s \"top -b -n 1 | grep 'Cpu(s):'\"" % (self.user, self.hosts[host], self.keyfile)
+            command = "ssh %s@%s -i %s \"cat /tmp/laser_stats/cpu\"" % (self.user, self.hosts[host], self.keyfile)
             cpustr = os.popen(command).read()
             contents = cpustr.split(",")
             cpusum = 0
