@@ -16,13 +16,14 @@
             data: ""
         }).responseText;
         data = eval('(' + responseData + ')');
+        console.log(data);
         chartdata = []
         for(var key in data) {
             elems = []
             for(index in data[key]) {
                 elems[elems.length] = [index ,data[key][index][1]];
             }
-            chartdata[chartdata.length] = elems;
+            chartdata.push({data: elems, label: key});
         }
         return chartdata;
     }
