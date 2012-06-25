@@ -12,13 +12,8 @@ class CPUDataCrawler():
     def collectData(self):
         hostdata = []
         for host in self.hosts:
-            command = "ssh %s@%s -i %s \"cat /tmp/laser_stats/cpu\"" % (self.user, self.hosts[host], self.keyfile)
+            command = "ssh %s@%s -i %s \"cat /proc/loadavg\"" % (self.user, self.hosts[host], self.keyfile)
             cpustr = os.popen(command).read()
-            contents = cpustr.split(",")
-            cpusum = 0
-            for elem in contents:
-                if re.search('%us|%sy', elem):
-                    elem = re.sub('[^0-9.]', '', elem)
-                    cpusum += float(elem)
-            hostdata.append((host, self.hosts[host], cpusum))
+            contents = cpustr.split(" ")
+            hostdata.append((host, self.hosts[host], float(contents[0])))
         return (time.localtime(), hostdata)

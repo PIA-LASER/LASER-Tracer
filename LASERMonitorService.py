@@ -1,7 +1,7 @@
 from itty import get, run_itty
 from CPUDataFileReader import CPUDataFileReader
 
-dataReader = CPUDataFileReader("/var/laserstats/cpuusage")
+dataReader = CPUDataFileReader("")
 
 @get('/data')
 def index(request):
@@ -14,5 +14,5 @@ def index(request):
     htmlfile.close()
     return contents
 
-run_itty(host='0.0.0.0')
+run_itty()
 

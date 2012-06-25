@@ -6,7 +6,7 @@ from CPUDataFileWriter import CPUDataFileWriter
 import time
 
 hosts = {
-    "master":"ec2-46-137-56-240.eu-west-1.compute.amazonaws.com"
+    "localhost":"localhost"
 }
 
 config = {
@@ -14,12 +14,12 @@ config = {
     "save_snapshot_factor":2,
     "buffer_size": 25,
     "hosts":hosts,
-    "user":"ubuntu",
+    "user":"",
     "keyfile":""
 }
 
 ringbuffer = RingBuffer(config["buffer_size"])
-fileWriter = CPUDataFileWriter("/var/laserstats/cpuusage")
+fileWriter = CPUDataFileWriter("")
 
 j = 0
 while True:
