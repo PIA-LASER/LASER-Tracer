@@ -6,20 +6,24 @@ from CPUDataFileWriter import CPUDataFileWriter
 import time
 
 hosts = {
-    "localhost":"localhost"
+	"master":"localhost",
+	"slave1":"slave1",
+	"slave2":"slave2",
+	"slave3":"slave3",
+	"slave4":"slave4"
 }
 
 config = {
-    "refresh_data_time":2,
-    "save_snapshot_factor":2,
-    "buffer_size": 25,
+    "refresh_data_time":1,
+    "save_snapshot_factor":1,
+    "buffer_size": 50,
     "hosts":hosts,
-    "user":"",
-    "keyfile":""
+    "user":"ubuntu",
+    "keyfile":"/home/ubuntu/.ssh/id_rsa"
 }
 
 ringbuffer = RingBuffer(config["buffer_size"])
-fileWriter = CPUDataFileWriter("")
+fileWriter = CPUDataFileWriter("/home/ubuntu/Laser/cpuusage")
 
 j = 0
 while True:

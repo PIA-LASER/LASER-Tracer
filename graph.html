@@ -6,7 +6,8 @@
     <script language="javascript" type="text/javascript" src="http://www.thomas-maier.net/jquery.flot.js"></script>
 </head>
 <body>
-<div id="placeholder" style="width:600px;height:300px;"></div>
+<center><img src="http://www.thomas-maier.net/laserlogo2.png"></center>
+<center><div id="placeholder" style="width:1700px;height:750px;"></div></center>
 <script type="text/javascript">
     function getData() {
         var responseData = $.ajax({
@@ -22,13 +23,13 @@
             for(index in data[key]) {
                 elems[elems.length] = [index ,data[key][index][1]];
             }
-            chartdata[chartdata.length] = elems;
+            chartdata.push({data: elems, label: key});
         }
         return chartdata;
     }
     var plot;
     function buildChart() {
-        plot = $.plot($("#placeholder"), getData());
+        plot = $.plot($("#placeholder"), getData(), {yaxis: {min:0, max:7}});
     }
     function updateChart() {
         plot.setData(getData());
