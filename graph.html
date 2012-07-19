@@ -17,6 +17,7 @@
             data: ""
         }).responseText;
         data = eval('(' + responseData + ')');
+        console.log(data);
         chartdata = []
         for(var key in data) {
             elems = []
